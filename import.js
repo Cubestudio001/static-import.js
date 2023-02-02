@@ -53,6 +53,11 @@ function getPage(turi){
     return  rt;
 }
 
+function do_it(){
+    static_import();
+    static_import_by_div();
+}
+
 /**
  * @param {string} tag_name
  * @returns {boolean}
@@ -63,10 +68,10 @@ function isExist(tag_name){
 
 if(isExist("LOAD_ON_READY")){
     $(document).ready(function (){
-       static_import();
+       do_it()
     });
 }
 else if(isExist("LOAD_ON_CALL")){
-    console.log("Waiting for call, use static_import() to render");
+    console.log("Waiting for call, use do_it() to render");
 }
-else static_import();
+else do_it();
